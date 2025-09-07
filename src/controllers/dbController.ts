@@ -1,10 +1,21 @@
+import * as dotenv from "dotenv";
+import path from "path";
+import fs from "fs";
+
 const mysql = require("mysql2/promise");
 
+dotenv.config({
+  path: path.resolve(__dirname, "../../.env"),
+  override: true,
+});
+
 const pool = mysql.createPool({
-  host: "localhost",
-  user: "root",
-  password: "sqlchivicks",
-  database: "deptinfo",
+  host: process.env.DB_HOST || "localhost",
+  port: Number(process.env.DB_PORT) || 3306,
+  user: process.env.DB_USER || "root",
+  password: process.env.DB_PASSWORD || "sqlchivicks",
+  database: process.env.DB_NAME || "test",
+  ssl: { ca: fs.readFileSync(path.resolve(__dirname, "../../ca.pem")) },
 });
 
 async function initialisePool() {

@@ -1,2 +1,7 @@
 /node_modules
 /dist
+.env
+hash.mjs
+ca.pem
+src/dump.txt
+src/scripts
