@@ -1,9 +1,11 @@
 // Imports
+import * as dotenv from "dotenv";
+import path from "path";
 import express, { Request, Response } from "express";
-import auth from "./routes/auth";
+import auth from "./auth/route";
 
 const logger = require("./middleware/logger");
-const { initialisePool } = require("./controllers/dbController");
+const { initialisePool, executeQuery } = require("./controllers/dbController");
 const cors = require("cors");
 
 const app = express();

@@ -8,4 +8,5 @@ interface Student {
   matricNo: number;
   department: string;
   level: number;
+  role: string;
 }

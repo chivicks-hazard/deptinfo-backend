@@ -1,7 +1,7 @@
 import type { Request, Response } from "express";
 
 const { executeQuery } = require("../controllers/dbController");
-const { login } = require("../controllers/authController");
+const { login } = require("./authController");
 const express = require("express");
 
 const router = express.Router();
